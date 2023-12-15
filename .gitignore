@@ -1,0 +1,30 @@
+# .gitignore
+
+# Arquivos e diretórios específicos do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyw
+
+# Ambientes virtuais (se estiver usando virtualenv ou venv)
+venv/
+env/
+
+# Arquivos específicos do Flask
+instance/
+.webassets-cache
+
+# Arquivos específicos do IDE (como Visual Studio Code)
+.vscode/
+
+# Arquivos e diretórios específicos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos específicos do sistema operacional Windows
+desktop.ini
+
+# Arquivo de variáveis de ambiente sensíveis
+.env

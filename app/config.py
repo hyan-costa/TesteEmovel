@@ -1,0 +1,3 @@
+
+class TestConfig:
+    TESTING = True
