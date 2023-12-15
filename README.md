@@ -3,10 +3,12 @@
 ## Rodando a Aplicação
 
 1. Clone o repositório 
-2. Instale as dependências: `pip install -r requirements.txt`
-2. Adicione as variaveis de ambiente no .env_example e depois renomeie o arquivo para .env: 
-2. Inicie o servico no conatiner com postgreSQL: ` cd docker/ && docker compose --env-file ../.env up -d && cd -`
-3. Execute a aplicação: `python app/app.py`
+2. Crie o ambiente virtual: `python3 -m venv venv`
+3. Ative o ambiente virtual: `source venv/bin/activate`
+4. Instale as dependências: `pip install -r requirements.txt`
+5. Adicione as variaveis de ambiente no .env_example e depois renomeie o arquivo para .env: 
+6. Inicie o servico no conatiner com postgreSQL: ` cd docker/ && docker compose --env-file ../.env up -d && cd -`
+7. Execute a aplicação: `cd app && flask run`
 
 ## Rodando os Testes
 
@@ -35,8 +37,18 @@
 *   **Parâmetros:**
     *   `customer_id` (int): ID do cliente.
 
+## Aprovar Tíquete do Cliente
 
-## Fechar Tíquete por Cliente
+- **URL:** `/customers/<int:customer_id>/approve_ticket/<int:ticket_id>`
+- **Método:** `POST`
+- **Parâmetros:**
+  - `customer_id` (int): ID do cliente.
+  - `ticket_id` (int): ID do tíquete a ser aprovado.
+- **Exemplo de Uso:**
+  ```bash
+  curl -X POST http://seu-domino/customers/1/approve_ticket/123
+  
+## 3.Fechar Tíquete por Cliente
 
 - **URL:** `/customers/<int:customer_id>/close_ticket/<int:ticket_id>`
 - **Método:** `POST`
@@ -48,7 +60,7 @@
   curl -X POST http://seu-domino/customers/1/close_ticket/123
 
 
-## 5. Obter Suporte
+## 4. Obter Suporte
 
 - **URL:** `/supports/<int:support_id>`
 - **Método:** `GET`
@@ -59,7 +71,7 @@
   curl http://seu-domino/supports/1
   
 
- ## 6. Criar Suporte
+ ## 5. Criar Suporte
 
 - **URL:** `/supports`
 - **Método:** `POST`
@@ -71,7 +83,7 @@
   ```bash
   curl -X POST -d "name=NomeDoSuporte&email=email@dominio.com&ranking=5" http://seu-domino/supports 
 
-## 7. Aceitar Tíquete
+## 6. Aceitar Tíquete
 
 - **URL:** `/supports/<int:support_id>/accept_ticket/<int:ticket_id>`
 - **Método:** `POST`
@@ -83,7 +95,7 @@
   curl -X POST http://seu-domino/supports/1/accept_ticket/123
   
 
-## 8. Fechar Tíquete por Suporte
+## 7. Fechar Tíquete por Suporte
 
 - **URL:** `/supports/<int:support_id>/close_ticket/<int:ticket_id>`
 - **Método:** `POST`
@@ -96,7 +108,7 @@
   
 
 
-## 9. Obter Tíquete
+## 8. Obter Tíquete
 
 - **URL:** `/tickets/<int:ticket_id>`
 - **Método:** `GET`
@@ -108,7 +120,7 @@
   
 
 
-## 10. Criar Tíquete
+## 9. Criar Tíquete
 
 - **URL:** `/tickets`
 - **Método:** `POST`
